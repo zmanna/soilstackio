@@ -1,13 +1,15 @@
-from src.api import upload_geojson_fields
+# main.py
+
+from api import upload_all_geojson_fields
 
 def main():
-    file_path = 'path_to_your_geojson_file.geojson'
-    results = upload_geojson_fields(file_path)
+    """
+    Main function to process and upload each GeoJSON feature.
+    """
+    file_path = "/Users/mannz/workspaces/holganix/soilStackio/Kaleb Dinwiddie.geojson"  # Replace with the actual path to your GeoJSON file
     
-    if results:
-        print("All boundaries uploaded successfully!")
-    else:
-        print("Failed to upload some boundaries.")
+    results = upload_all_geojson_fields(file_path)
+    print(results)
 
 if __name__ == "__main__":
     main()
