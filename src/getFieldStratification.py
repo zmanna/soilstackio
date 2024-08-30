@@ -1,19 +1,14 @@
 import requests
-from config import API_KEY, GROUP_ID, BASE_URL
+from config import API_KEY, BASE_URL
 
-def get_all_stratifications(group_id=None):
+def get_all_stratifications():
     """
-    Retrieves all stratifications, optionally filtering by groupId.
+    Retrieves all stratifications.
     
-    :param group_id: Optional, the groupId to filter stratifications by.
     :return: The stratification data if successful, None otherwise.
     """
     # Construct the URL using the BASE_URL
     url = f"{BASE_URL}/stratifications"
-    
-    # If a groupId is provided, add it as a query parameter
-    if group_id:
-        url += f"?groupId={group_id}"
     
     headers = {
         "Authorization": f"Apikey {API_KEY}"
@@ -30,7 +25,7 @@ def get_all_stratifications(group_id=None):
 
 def main():
     # Retrieve and display all stratifications
-    stratifications = get_all_stratifications(GROUP_ID)
+    stratifications = get_all_stratifications()
     
     if stratifications:
         print("Stratifications Data:")
